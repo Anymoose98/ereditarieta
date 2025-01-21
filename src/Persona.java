@@ -1,11 +1,13 @@
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import javax.swing.text.DateFormatter;
 
 public class Persona {
 
     // Attrubuti
-    String nome;
-    String cognome;
-    LocalDate dataNascita;
+    private String nome;
+    private String cognome;
+    private LocalDate dataNascita;
 
     // Costruttore
     public Persona(String nome, String cognome, LocalDate dataNascita) {
@@ -61,7 +63,8 @@ public class Persona {
     // Metodi
     // Metodo saluta
     public String saluta(){
-        return ("ciao sono " + nome + " " + cognome + " e sono nato il " + dataNascita);
+        DateTimeFormatter df = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        return ("ciao sono " + nome + " " + cognome + " e sono nato il " + df.format(dataNascita));
     }
 
 }
